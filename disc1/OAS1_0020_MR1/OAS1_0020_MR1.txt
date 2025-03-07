@@ -1,0 +1,49 @@
+SESSION ID:   OAS1_0020_MR1
+AGE:          48
+M/F:          Female
+HAND:         Right
+EDUC:         5
+SES:          2
+CDR:          0
+MMSE:         29
+
+eTIV:         1326.00
+ASF:          1.32
+nWBV:         0.785
+
+mpr-1      MPRAGE 
+mpr-2      MPRAGE 
+mpr-3      MPRAGE 
+
+SCAN NUMBER:  mpr-1
+TYPE:         MPRAGE
+Vox res (mm): 1.0 x 1.0 x 1.25
+Rect. Fov:    256/256
+Orientation:  Sag
+TR (ms):      9.7
+TE (ms):      4.0
+TI (ms):      20.0
+Flip:         10
+
+SCAN NUMBER:  mpr-2
+TYPE:         MPRAGE
+Vox res (mm): 1.0 x 1.0 x 1.25
+Rect. Fov:    256/256
+Orientation:  Sag
+TR (ms):      9.7
+TE (ms):      4.0
+TI (ms):      20.0
+Flip:         10
+
+SCAN NUMBER:  mpr-3
+TYPE:         MPRAGE
+Vox res (mm): 1.0 x 1.0 x 1.25
+Rect. Fov:    256/256
+Orientation:  Sag
+TR (ms):      9.7
+TE (ms):      4.0
+TI (ms):      20.0
+Flip:         10
+
+
+

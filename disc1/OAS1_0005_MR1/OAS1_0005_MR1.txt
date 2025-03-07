@@ -1,0 +1,60 @@
+SESSION ID:   OAS1_0005_MR1
+AGE:          18
+M/F:          Male
+HAND:         Right
+EDUC:         
+SES:          
+CDR:          
+MMSE:         
+
+eTIV:         1737.00
+ASF:          1.01
+nWBV:         0.848
+
+mpr-1      MPRAGE 
+mpr-2      MPRAGE 
+mpr-3      MPRAGE 
+mpr-4      MPRAGE 
+
+SCAN NUMBER:  mpr-1
+TYPE:         MPRAGE
+Vox res (mm): 1.0 x 1.0 x 1.25
+Rect. Fov:    256/256
+Orientation:  Sag
+TR (ms):      9.7
+TE (ms):      4.0
+TI (ms):      20.0
+Flip:         10
+
+SCAN NUMBER:  mpr-2
+TYPE:         MPRAGE
+Vox res (mm): 1.0 x 1.0 x 1.25
+Rect. Fov:    256/256
+Orientation:  Sag
+TR (ms):      9.7
+TE (ms):      4.0
+TI (ms):      20.0
+Flip:         10
+
+SCAN NUMBER:  mpr-3
+TYPE:         MPRAGE
+Vox res (mm): 1.0 x 1.0 x 1.25
+Rect. Fov:    256/256
+Orientation:  Sag
+TR (ms):      9.7
+TE (ms):      4.0
+TI (ms):      20.0
+Flip:         10
+
+SCAN NUMBER:  mpr-4
+TYPE:         MPRAGE
+Vox res (mm): 1.0 x 1.0 x 1.25
+Rect. Fov:    256/256
+Orientation:  Sag
+TR (ms):      9.7
+TE (ms):      4.0
+TI (ms):      20.0
+Flip:         10
+
+
+

@@ -1,0 +1,60 @@
+SESSION ID:   OAS1_0042_MR1
+AGE:          80
+M/F:          Male
+HAND:         Right
+EDUC:         4
+SES:          2
+CDR:          0.5
+MMSE:         29
+
+eTIV:         1854.00
+ASF:          0.95
+nWBV:         0.709
+
+mpr-1      MPRAGE 
+mpr-2      MPRAGE 
+mpr-3      MPRAGE 
+mpr-4      MPRAGE 
+
+SCAN NUMBER:  mpr-1
+TYPE:         MPRAGE
+Vox res (mm): 1.0 x 1.0 x 1.25
+Rect. Fov:    256/256
+Orientation:  Sag
+TR (ms):      9.7
+TE (ms):      4.0
+TI (ms):      20.0
+Flip:         10
+
+SCAN NUMBER:  mpr-2
+TYPE:         MPRAGE
+Vox res (mm): 1.0 x 1.0 x 1.25
+Rect. Fov:    256/256
+Orientation:  Sag
+TR (ms):      9.7
+TE (ms):      4.0
+TI (ms):      20.0
+Flip:         10
+
+SCAN NUMBER:  mpr-3
+TYPE:         MPRAGE
+Vox res (mm): 1.0 x 1.0 x 1.25
+Rect. Fov:    256/256
+Orientation:  Sag
+TR (ms):      9.7
+TE (ms):      4.0
+TI (ms):      20.0
+Flip:         10
+
+SCAN NUMBER:  mpr-4
+TYPE:         MPRAGE
+Vox res (mm): 1.0 x 1.0 x 1.25
+Rect. Fov:    256/256
+Orientation:  Sag
+TR (ms):      9.7
+TE (ms):      4.0
+TI (ms):      20.0
+Flip:         10
+
+
+
