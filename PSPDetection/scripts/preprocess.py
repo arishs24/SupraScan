@@ -1,41 +1,30 @@
-import os
-import numpy as np
 import nibabel as nib
+import numpy as np
+import os
 
-# Function to preprocess PET scans
-def preprocess_pet(file_paths, save_path='data/preprocessed_slices.npy'):
-    all_slices = []
-    for file_path in file_paths:
-        try:
-            print(f"Starting preprocessing for: {file_path}")
-            img = nib.load(file_path)
-            data = img.get_fdata()
-            print(f"Loaded PET data with shape: {data.shape}")
+def preprocess(file_path, output_path, crop_coords=None):
+    try:
+        img = nib.load(file_path)
+        data = img.get_fdata()
+        print(f"Loaded PET data with shape: {data.shape}")
+        
+        # Optional cropping to focus on midbrain and related regions
+        if crop_coords:
+            x_start, x_end, y_start, y_end, z_start, z_end = crop_coords
+            data = data[x_start:x_end, y_start:y_end, z_start:z_end]
+            print(f"Cropped data to shape: {data.shape}")
+        
+        # Select slices (middle 7 for now)
+        slice_indices = np.linspace(0, data.shape[-1] - 1, 7, dtype=int)
+        slices = data[:, :, slice_indices]
 
-            # Select the middle slices (e.g., 7 slices around the center)
-            num_slices = data.shape[2]
-            middle_index = num_slices // 2
-            slice_range = range(middle_index - 3, middle_index + 4)
+        # Reshape for model input
+        slices = slices[..., np.newaxis]
+        print(f"Final preprocessed data shape: {slices.shape}")
 
-            for i in slice_range:
-                slice_data = data[:, :, i]
-                all_slices.append(slice_data)
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
+        np.save(output_path, slices)
+        print(f"Saved {len(slices)} slices to {output_path}")
 
-            print(f"Collected {len(slice_range)} slices from {file_path}")
-        except Exception as e:
-            print(f"Failed to load {file_path}: {e}")
-
-    all_slices = np.array(all_slices)
-    np.save(save_path, all_slices)
-    print(f"Saved {all_slices.shape[0]} slices to {save_path}")
-
-# Example usage
-pet_files = [
-    '../ds004856/sub-976/ses-wave1/pet/sub-976_ses-wave1_trc-18FAV45_run-1_pet.nii.gz',
-    '../ds004856/sub-976/ses-wave2/pet/sub-976_ses-wave2_trc-18FAV45_run-1_pet.nii.gz',
-    '../ds004856/sub-976/ses-wave3/pet/sub-976_ses-wave3_trc-18FAV45_run-1_pet.nii.gz',
-    '../ds004856/sub-978/ses-wave1/pet/sub-978_ses-wave1_trc-18FAV45_run-1_pet.nii.gz',
-    '../ds004856/sub-980/ses-wave1/pet/sub-980_ses-wave1_trc-18FAV45_run-1_pet.nii.gz'
-]
-
-preprocess_pet(pet_files)
+    except Exception as e:
+        print(f"Failed to load {file_path}: {e}")
