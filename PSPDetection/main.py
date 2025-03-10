@@ -4,6 +4,8 @@ from tensorflow.keras import layers, models
 import matplotlib.pyplot as plt
 import os
 import streamlit as st
+import os
+
 
 # Streamlit page configuration
 st.set_page_config(page_title='PSP Detection Prototype', layout='wide')
@@ -44,8 +46,8 @@ if page == '🏠 Overview':
     This application provides a prototype for early detection of PSP using advanced machine learning techniques. 
     Our 3D CNN model analyzes medical imaging data to identify early biomarkers of PSP.
     ''')
-    st.image('brainimage.png', caption='Sample Brain PET Scans: Comparing Advanced PSP, Early PSP, and Parkinson’s Disease', use_container_width=True)
-
+    image_path = os.path.join('PSPDetection', 'brainimage.png')
+    st.image(image_path, caption='Sample Brain PET Scans: Comparing Advanced PSP, Early PSP, and Parkinson’s Disease', use_container_width=True)
 elif page == 'ℹ️ About PSP':
     st.header('Understanding Progressive Supranuclear Palsy (PSP)')
     st.markdown('''
@@ -69,8 +71,8 @@ elif page == 'ℹ️ About PSP':
     Our solution aims to address this gap by providing a **highly accurate, AI-driven diagnostic tool** that can detect PSP in its earliest stages.
 
     ''')
-    st.image('severity.png', caption='Visual Representation of Brain Changes in PSP', use_container_width=True)
-
+    image_path1 = os.path.join('PSPDetection', 'severity.png')
+    st.image(image_path1, caption='Visual Representation of Brain Changes in PSP', use_container_width=True)
 
 elif page == '⚙️ How It Works':
     st.header('Technology Behind the Solution')
@@ -112,7 +114,9 @@ elif page == '⚙️ How It Works':
     - These insights offer a deeper understanding of PSP’s early-stage progression.
 
     ''')
-    st.image('cnnmodel.png', caption='3D CNN Model Architecture for PSP Detection', use_container_width=True)
+
+    image_path2 = os.path.join('PSPDetection', 'cnnmodel.png')
+    st.image(image_path1, caption='3D CNN Model Architecture for PSP Detection', use_container_width=True)
 
 
 elif page == '🚀 Model Training':
@@ -225,5 +229,6 @@ elif page == '📊 Results':
 elif page == '🧪 Sample Run':
     st.header('Sample Run: PSP Detection in Action')
     st.markdown('Below is a sample MRI scan with suspected PSP. Our ML model analyzed this scan for amyloid-beta buildup and tau protein concentrations.')
-    st.image('samplerun.png', caption='Sample MRI Scan with PSP Indicators', use_container_width=True)
+    image_path3 = os.path.join('PSPDetection', 'samplerun.png')
+    st.image(image_path3, caption='Sample MRI Scan with PSP Indicators', use_container_width=True)
     st.write('The model achieved an accuracy of **85%**, effectively identifying PSP-related biomarkers and demonstrating its potential as a clinical tool.')
