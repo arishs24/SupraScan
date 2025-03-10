@@ -5,3 +5,5 @@ numpy
 tensorflow
 scikit-learn
 pandas
+streamlit
+nibabel
