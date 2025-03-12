@@ -4,13 +4,10 @@ from tensorflow.keras import layers, models
 import matplotlib.pyplot as plt
 import os
 import streamlit as st
-import os
 
 
-# Streamlit page configuration
 st.set_page_config(page_title='PSP Detection Prototype', layout='wide')
 
-# Apply custom CSS for aesthetics
 st.markdown("""
     <style>
     .main {background-color: #f0f2f6;}
@@ -21,15 +18,12 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Display page title and description
 st.title('🧠 Early Detection of Progressive Supranuclear Palsy (PSP)')
 st.markdown('This prototype uses PET scan data to detect early signs of PSP using a 3D Convolutional Neural Network.')
 
-# Add a sidebar for navigation with icons
 st.sidebar.title('📁 Navigation')
 page = st.sidebar.radio('Select a section:', ['🏠 Overview', 'ℹ️ About PSP', '⚙️ How It Works', '🚀 Model Training', '📊 Results', '🧪 Sample Run'])
 
-# Define PET files for preprocessing
 pet_files = [
     'pet/sub-976_ses-wave2_trc-18FAV45_run-1_pet.nii.gz',
     'pet/sub-976_ses-wave3_trc-18FAV45_run-1_pet.nii.gz',
@@ -37,7 +31,6 @@ pet_files = [
     'pet/sub-980_ses-wave1_trc-18FAV45_run-1_pet.nii.gz',
 ]
 
-# Directory to save preprocessed data
 os.makedirs('data', exist_ok=True)
 
 if page == '🏠 Overview':
@@ -46,8 +39,8 @@ if page == '🏠 Overview':
     This application provides a prototype for early detection of PSP using advanced machine learning techniques. 
     Our 3D CNN model analyzes medical imaging data to identify early biomarkers of PSP.
     ''')
-    image_path = os.path.join('PSPDetection', 'brainimage.png')
-    st.image(image_path, caption='Sample Brain PET Scans: Comparing Advanced PSP, Early PSP, and Parkinson’s Disease', use_container_width=True)
+    st.image('brainimage.png', caption='Sample Brain PET Scans: Comparing Advanced PSP, Early PSP, and Parkinson’s Disease', use_container_width=True)
+
 elif page == 'ℹ️ About PSP':
     st.header('Understanding Progressive Supranuclear Palsy (PSP)')
     st.markdown('''
@@ -71,8 +64,8 @@ elif page == 'ℹ️ About PSP':
     Our solution aims to address this gap by providing a **highly accurate, AI-driven diagnostic tool** that can detect PSP in its earliest stages.
 
     ''')
-    image_path1 = os.path.join('PSPDetection', 'severity.png')
-    st.image(image_path1, caption='Visual Representation of Brain Changes in PSP', use_container_width=True)
+    st.image('severity.png', caption='Visual Representation of Brain Changes in PSP', use_container_width=True)
+
 
 elif page == '⚙️ How It Works':
     st.header('Technology Behind the Solution')
@@ -114,16 +107,13 @@ elif page == '⚙️ How It Works':
     - These insights offer a deeper understanding of PSP’s early-stage progression.
 
     ''')
-
-    image_path2 = os.path.join('PSPDetection', 'cnnmodel.png')
-    st.image(image_path1, caption='3D CNN Model Architecture for PSP Detection', use_container_width=True)
+    st.image('cnnmodel.png', caption='3D CNN Model Architecture for PSP Detection', use_container_width=True)
 
 
 elif page == '🚀 Model Training':
     st.header('Model Training Process')
 
     if st.button('Start Model Training 🧬'):
-        # Preprocess PET files
         for i, pet_file in enumerate(pet_files):
             preprocessed_path = f'data/preprocessed_slices_{i}.npy'
             preprocess(pet_file, preprocessed_path)
@@ -173,16 +163,13 @@ elif page == '📊 Results':
         history_data = np.load('data/training_history.npy', allow_pickle=True).item()
         fig, ax = plt.subplots()
 
-        # Plot accuracy for training and validation
         ax.plot(history_data['accuracy'], label='Train Accuracy', linestyle='-', marker='o', color='blue')
         ax.plot(history_data['val_accuracy'], label='Validation Accuracy', linestyle='--', marker='x', color='orange')
 
-        # Set labels and title
         ax.set_xlabel('Epochs')
         ax.set_ylabel('Accuracy')
         ax.set_title('Training vs Validation Accuracy Over Epochs')
 
-        # Highlight specific points of interest
         max_val_accuracy = max(history_data['val_accuracy'])
         max_val_epoch = history_data['val_accuracy'].index(max_val_accuracy)
 
@@ -192,7 +179,6 @@ elif page == '📊 Results':
                     arrowprops=dict(facecolor='green', shrink=0.05),
                     fontsize=10, color='green')
 
-        # Annotate start and end points
         ax.annotate(f'Start: {history_data["accuracy"][0]:.2f}', 
                     xy=(0, history_data['accuracy'][0]), 
                     xytext=(1, history_data['accuracy'][0] + 0.1),
@@ -205,16 +191,12 @@ elif page == '📊 Results':
                     arrowprops=dict(facecolor='blue', shrink=0.05),
                     fontsize=9, color='blue')
 
-        # Add a grid for better readability
         ax.grid(True, linestyle='--', alpha=0.7)
 
-        # Show the legend
         ax.legend()
 
-        # Render the plot in Streamlit
         st.pyplot(fig)
 
-        # Add a descriptive analysis of the graph
         st.markdown('''### Model Performance Insights
         - **Increasing Accuracy:** The model's accuracy improves over time, indicating effective learning.
         - **Validation Performance:** The validation accuracy is relatively close to the training accuracy, suggesting good generalization.
@@ -229,6 +211,5 @@ elif page == '📊 Results':
 elif page == '🧪 Sample Run':
     st.header('Sample Run: PSP Detection in Action')
     st.markdown('Below is a sample MRI scan with suspected PSP. Our ML model analyzed this scan for amyloid-beta buildup and tau protein concentrations.')
-    image_path3 = os.path.join('PSPDetection', 'samplerun.png')
-    st.image(image_path3, caption='Sample MRI Scan with PSP Indicators', use_container_width=True)
+    st.image('samplerun.png', caption='Sample MRI Scan with PSP Indicators', use_container_width=True)
     st.write('The model achieved an accuracy of **85%**, effectively identifying PSP-related biomarkers and demonstrating its potential as a clinical tool.')
