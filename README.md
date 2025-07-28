@@ -3,6 +3,9 @@
 ## 📌 Overview  
 **SupraScan** is an innovative ML-driven solution for the **early detection of Progressive Supranuclear Palsy (PSP)** using **PET and MRI scans**. The model is built using a **3D Convolutional Neural Network (CNN)** to detect early biomarkers such as **amyloid-beta buildup and tau protein aggregation**, allowing for early intervention and improved patient outcomes.  
 
+## Link To Research Abstract Presented @ CSHL
+https://meetings.cshl.edu/posters/galaxy25/gbcc25_AbstractBook.pdf#page117
+
 ### 🔹 Key Features:  
 - **Deep Learning Model** trained on PSP and non-PSP patient data.  
 - **Streamlit-based UI** for easy interaction.  
